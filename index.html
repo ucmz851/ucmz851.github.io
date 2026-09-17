@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usama Imran Cheema — Linux Systems &amp; Infrastructure Engineer</title>
-  <meta name="description" content="Personal site of Usama Imran Cheema. Linux Systems Administrator, C/POSIX Systems Programmer, Cloud Infrastructure &amp; Security Engineer." />
+  <title>Usama Imran Cheema</title>
+  <meta name="description" content="Systems Engineer on a mission to build revolutionary, safe-by-design technology for all users." />
   
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -70,18 +69,18 @@
 
     /* Layout */
     .container {
-      max-width: 680px;
+      max-width: 660px;
       margin: 0 auto;
       padding: 72px 24px 96px;
     }
 
     /* Header */
     header {
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
 
     .name {
-      font-size: 1.85rem;
+      font-size: 1.9rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       color: #ffffff;
@@ -89,10 +88,10 @@
     }
 
     .title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--text-muted);
       font-weight: 400;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .quick-links {
@@ -117,29 +116,29 @@
     .divider {
       height: 1px;
       background: var(--border);
-      margin: 48px 0;
+      margin: 40px 0;
     }
 
     /* Section */
     section {
-      margin-bottom: 48px;
+      margin-bottom: 42px;
     }
 
     .section-title {
       font-family: 'Fira Code', monospace;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--text-dim);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .prose p {
-      font-size: 0.98rem;
+      font-size: 0.97rem;
       color: var(--text-muted);
-      margin-bottom: 16px;
-      line-height: 1.75;
+      margin-bottom: 14px;
+      line-height: 1.7;
     }
 
     .prose p:last-child {
@@ -151,9 +150,95 @@
       font-weight: 600;
     }
 
+    /* Highlight Mission Box */
+    .mission-box {
+      background: #080808;
+      border: 1px solid #1a1a1a;
+      border-left: 2px solid #ffffff;
+      padding: 18px 20px;
+      border-radius: 6px;
+      margin: 18px 0;
+    }
+
+    .mission-box p {
+      font-size: 0.95rem;
+      color: #e4e4e7;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Join CTA Box */
+    .join-box {
+      margin-top: 18px;
+      background: #080808;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .join-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .join-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .join-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #ffffff;
+      color: #000000 !important;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .btn-action:hover {
+      background: #e4e4e7;
+      opacity: 1;
+    }
+
+    .btn-action-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #f4f4f5;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action-ghost:hover {
+      border-color: var(--border-hover);
+      background: #111111;
+      opacity: 1;
+    }
+
     /* Single GitHub Link Box */
     .github-box {
-      margin-top: 20px;
+      margin-top: 18px;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -169,7 +254,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       color: inherit;
       text-decoration: none;
     }
@@ -180,20 +265,20 @@
 
     .github-icon {
       flex-shrink: 0;
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       fill: #ffffff;
     }
 
     .github-details {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
 
     .github-handle {
       font-family: 'Fira Code', monospace;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: #ffffff;
       display: flex;
@@ -202,39 +287,8 @@
     }
 
     .github-sub {
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       color: var(--text-dim);
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .skill-group {
-      padding-bottom: 16px;
-      border-bottom: 1px solid #111111;
-    }
-
-    .skill-group:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .skill-name {
-      font-family: 'Fira Code', monospace;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-
-    .skill-items {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
     }
 
     /* Contact List */
@@ -276,7 +330,7 @@
 
     /* Footer */
     footer {
-      margin-top: 64px;
+      margin-top: 56px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
       display: flex;
@@ -314,7 +368,7 @@
     <!-- Header -->
     <header>
       <h1 class="name">Usama Imran Cheema</h1>
-      <p class="title">Linux Systems Administrator &amp; Infrastructure Engineer</p>
+      <p class="title">Systems Engineer &bull; Building Safe Infrastructure</p>
 
       <nav class="quick-links">
         <a href="https://github.com/ucmz851" target="_blank">GitHub ↗</a>
@@ -327,31 +381,71 @@
     <div class="divider"></div>
 
     <main>
-      <!-- About -->
+      <!-- Vision & Mission -->
       <section>
-        <h2 class="section-title">// About</h2>
+        <h2 class="section-title">// Vision &amp; Mission</h2>
         <div class="prose">
           <p>
-            I am a Linux Systems Administrator and Cloud Infrastructure Engineer with 3+ years of intensive hands-on experience in low-level Linux administration, POSIX systems engineering, server security hardening, and hybrid cloud operations across Microsoft Azure and AWS.
+            I am on a mission to build revolutionary, foundational technology that is <strong>inherently safe, resilient, and sovereign for all users</strong>.
           </p>
+          <div class="mission-box">
+            <p>
+              Most modern computing is fragile, bloated, and unsafe by design. True safety cannot be an afterthought patched on top of broken layers—it must be architected into the bedrock: from kernel primitives and memory safety to decentralized, zero-trust infrastructure.
+            </p>
+          </div>
           <p>
-            My engineering philosophy centers on understanding computing systems from the bottom up: hardware, firmware, kernel internals, memory management, POSIX syscalls, network protocols, and distributed resilience.
-          </p>
-          <p>
-            I maintain and operate 24/7 virtualized server clusters powered by bare-metal <strong>QEMU/KVM</strong> and Linux hypervisors. I actively diagnose and secure systems using deep network telemetry (TCP/IP, DNS, Nginx reverse proxies, UFW/Iptables, Fail2ban), and automate infrastructure using modern Bash and cloud-init.
+            My vision is computing technology that fundamentally protects user privacy, eliminates structural vulnerabilities, and guarantees resilience under extreme conditions.
           </p>
         </div>
       </section>
 
-      <!-- Projects & GitHub -->
+      <!-- About Me -->
       <section>
-        <h2 class="section-title">// Projects &amp; Code</h2>
+        <h2 class="section-title">// About Me</h2>
         <div class="prose">
           <p>
-            I engineer systems software with an emphasis on low-level performance, lockless concurrency, and zero-dependency architectures. My work spans segmented POSIX download engines in C11, container runtimes built from scratch using Linux namespaces and cgroups v2 in Go, zero-dependency kernel telemetry daemons querying <code>/proc</code>, and asynchronous terminal user interfaces in Rust.
+            I am a Linux Systems Administrator and POSIX systems engineer with 3+ years of intensive experience in low-level Linux internals, bare-metal hypervisors (QEMU/KVM), and hybrid cloud environments (Azure &amp; AWS).
           </p>
           <p>
-            All my projects, source code, benchmarks, and infrastructure configurations are open source and hosted on GitHub:
+            I build systems software from the bottom up—focusing on lockless concurrency, kernel interfaces (<code>/proc</code>, <code>cgroups v2</code>, <code>namespaces</code>), defense-in-depth networking, and high-performance tooling in C, Rust, and Go.
+          </p>
+        </div>
+      </section>
+
+      <!-- Join Me -->
+      <section>
+        <h2 class="section-title">// Join Me</h2>
+        <div class="prose">
+          <p>
+            Building technology that changes the paradigm is not a solo effort. I am actively looking for ambitious engineers, systems researchers, and builders who share this conviction.
+          </p>
+        </div>
+
+        <div class="join-box">
+          <div class="join-title">Let's build technology that protects humanity.</div>
+          <div class="join-desc">
+            If you care about deep systems, low-level engineering, uncompromised security, and creating tools that empower people without exploiting them—let's connect.
+          </div>
+          <div class="join-actions">
+            <a href="mailto:usamaimrancheema435@gmail.com" class="btn-action">
+              <span>Contact via Email ↗</span>
+            </a>
+            <a href="https://x.com/ucmz851" target="_blank" class="btn-action-ghost">
+              <span>Message on X ↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="btn-action-ghost">
+              <span>LinkedIn ↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Code & Projects (Single GitHub Link) -->
+      <section>
+        <h2 class="section-title">// Code &amp; Projects</h2>
+        <div class="prose">
+          <p>
+            All my systems software, concurrency engines, telemetry daemons, and low-level experiments are developed openly on GitHub.
           </p>
         </div>
 
@@ -362,43 +456,9 @@
             </svg>
             <div class="github-details">
               <span class="github-handle">github.com/ucmz851 ↗</span>
-              <span class="github-sub">Explore all repositories, systems tooling, and source code</span>
+              <span class="github-sub">Explore all open-source repositories and systems tooling</span>
             </div>
           </a>
-        </div>
-      </section>
-
-      <!-- Technical Capabilities -->
-      <section>
-        <h2 class="section-title">// Technical Focus</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <div class="skill-name">Operating Systems &amp; Kernel</div>
-            <div class="skill-items">
-              Ubuntu Server, Debian, RHEL, Arch Linux &bull; POSIX APIs (<code>mmap</code>, <code>posix_fallocate</code>) &bull; Namespaces &amp; cgroups v2 &bull; Systemd daemons &bull; <code>/proc</code> telemetry &bull; Storage &amp; LVM
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-name">Virtualization &amp; Cloud</div>
-            <div class="skill-items">
-              QEMU/KVM bare-metal hypervisors &bull; Libvirt &bull; Docker &bull; Microsoft Azure (VMs, VNets, Subnets, NSGs) &bull; AWS (EC2, VPC, S3, IAM, SigV4) &bull; Cloud-init automation
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-name">Networking &amp; Security</div>
-            <div class="skill-items">
-              TCP/IP, DNS, DHCP routing &bull; Nginx reverse proxy &bull; TLS/SSL certificates &bull; UFW, Iptables &amp; Fail2ban &bull; SSH key hardening (ED25519) &bull; System audit trails
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-name">Languages &amp; Tooling</div>
-            <div class="skill-items">
-              C11 (POSIX Systems) &bull; Go &bull; Rust &bull; Python &bull; Modern Bash &bull; Git &amp; GitHub Actions CI/CD
-            </div>
-          </div>
         </div>
       </section>
 
