@@ -13,27 +13,35 @@
 
   <style>
     :root {
-      --bg: #090d16;
-      --bg-card: #0f172a;
-      --bg-card-hover: #1e293b;
-      --border: #1e293b;
-      --border-accent: #334155;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --primary: #38bdf8;
-      --primary-glow: rgba(56, 189, 248, 0.15);
-      --accent: #6366f1;
+      --bg: #000000;
+      --bg-surface: #080808;
+      --bg-card: #0a0a0a;
+      --bg-card-hover: #111111;
+      --border: #1a1a1a;
+      --border-accent: #262626;
+      --border-hover: #383838;
+      --text: #f4f4f5;
+      --text-muted: #999999;
+      --text-dim: #666666;
+      --primary: #ffffff;
+      --accent: #38bdf8;
       --green: #22c55e;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      background-color: var(--bg);
+    }
+
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     code, pre, .mono {
@@ -42,9 +50,24 @@
 
     a { color: inherit; text-decoration: none; }
 
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222222;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #333333;
+    }
+
     /* Layout */
     .container {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -54,107 +77,100 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(0, 0, 0, 0.85);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 70px;
+      height: 64px;
     }
     .logo {
       font-family: 'Fira Code', monospace;
       font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--primary);
+      font-size: 0.95rem;
+      color: #ffffff;
       display: flex;
       align-items: center;
       gap: 8px;
+      letter-spacing: -0.01em;
+    }
+    .logo:hover {
+      color: #d4d4d8;
     }
     .nav-links {
       display: flex;
       align-items: center;
       gap: 24px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
-    .nav-links a:hover { color: var(--primary); transition: color 0.2s; }
+    .nav-links a {
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
     .btn-nav {
-      background: var(--primary);
-      color: #000;
+      background: #ffffff;
+      color: #000000 !important;
       font-weight: 600;
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 6px;
-      font-size: 0.85rem;
-      transition: all 0.2s;
+      font-size: 0.82rem;
+      transition: background 0.15s ease, transform 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .btn-nav:hover {
-      background: #7dd3fc;
+      background: #e4e4e7;
       transform: translateY(-1px);
     }
 
     /* Hero Section */
     .hero {
-      padding: 90px 0 60px;
-      position: relative;
-    }
-    .hero-glow {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
-      filter: blur(60px);
-      z-index: -1;
+      padding: 80px 0 50px;
     }
     .status-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 5px 12px;
+      background: #0a0a0a;
+      border: 1px solid #1f1f1f;
       border-radius: 9999px;
-      color: #4ade80;
-      font-size: 0.85rem;
+      color: #a1a1aa;
+      font-size: 0.8rem;
       font-weight: 500;
       margin-bottom: 24px;
     }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
+    .status-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background-color: var(--green);
-      box-shadow: 0 0 10px var(--green);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
     }
     h1.hero-name {
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 800;
-      letter-spacing: -1.5px;
+      letter-spacing: -0.03em;
       line-height: 1.15;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      color: #ffffff;
     }
     .hero-subtitle {
       font-size: 1.25rem;
-      color: var(--primary);
+      color: #a1a1aa;
       font-weight: 500;
       margin-bottom: 20px;
+      letter-spacing: -0.01em;
     }
     .hero-desc {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
       max-width: 720px;
       margin-bottom: 32px;
@@ -163,277 +179,269 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       margin-bottom: 48px;
     }
     .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--primary);
-      color: #040914;
+      background: #ffffff;
+      color: #000000;
       font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      transition: all 0.2s;
+      padding: 11px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
     .btn-primary:hover {
-      background: #7dd3fc;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
+      background: #e4e4e7;
+      transform: translateY(-1px);
     }
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--bg-card);
+      background: #0a0a0a;
       border: 1px solid var(--border-accent);
       color: var(--text);
       font-weight: 500;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      transition: all 0.2s;
+      padding: 11px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: all 0.15s ease;
     }
     .btn-secondary:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--primary);
-      transform: translateY(-2px);
+      background: #141414;
+      border-color: var(--border-hover);
+      color: #ffffff;
+      transform: translateY(-1px);
     }
 
     /* Terminal Widget */
     .terminal-box {
-      background: #030712;
-      border: 1px solid #1f2937;
-      border-radius: 12px;
+      background: #050505;
+      border: 1px solid var(--border);
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
-      margin-bottom: 60px;
+      margin-bottom: 70px;
     }
     .terminal-header {
-      background: #111827;
+      background: #0a0a0a;
       padding: 10px 16px;
       display: flex;
       align-items: center;
       gap: 8px;
-      border-bottom: 1px solid #1f2937;
+      border-bottom: 1px solid var(--border);
     }
-    .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .dot-red { background: #3f3f46; }
+    .dot-yellow { background: #3f3f46; }
+    .dot-green { background: #3f3f46; }
     .terminal-title {
-      font-size: 0.8rem;
-      color: #9ca3af;
+      font-size: 0.78rem;
+      color: var(--text-dim);
       margin-left: auto;
       margin-right: auto;
       font-family: 'Fira Code', monospace;
     }
     .terminal-body {
-      padding: 20px;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #e5e7eb;
+      padding: 20px 22px;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #e4e4e7;
     }
-    .prompt { color: var(--primary); }
-    .command { color: #f3f4f6; }
+    .prompt { color: #a1a1aa; }
+    .command { color: #ffffff; }
     .output-green { color: #4ade80; }
     .output-cyan { color: #38bdf8; }
-    .output-muted { color: #6b7280; }
+    .output-muted { color: #71717a; }
 
     /* Section Headers */
     .section-head {
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
     .section-tag {
-      color: var(--primary);
+      color: var(--text-dim);
       font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
     }
     .section-title {
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.02em;
+      color: #ffffff;
     }
 
     /* Projects Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 80px;
+      gap: 18px;
+      margin-bottom: 70px;
     }
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
+      border-radius: 8px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.25s ease;
-      position: relative;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
     }
     .project-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-4px);
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
-    }
-    .project-card.featured {
-      border-color: rgba(56, 189, 248, 0.4);
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 100%);
-    }
-    .featured-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
     }
     .project-name {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      font-family: 'Fira Code', monospace;
+      color: #ffffff;
+      margin-bottom: 10px;
     }
     .project-desc {
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 6px;
+      margin-bottom: 22px;
     }
     .tag {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-family: 'Fira Code', monospace;
-      background: rgba(30, 41, 59, 0.8);
-      border: 1px solid #334155;
-      padding: 3px 10px;
+      background: #0f0f0f;
+      border: 1px solid #1f1f1f;
+      padding: 3px 8px;
       border-radius: 4px;
-      color: #cbd5e1;
+      color: #a1a1aa;
     }
     .project-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.88rem;
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 0.85rem;
+      font-family: 'Fira Code', monospace;
+      transition: color 0.15s ease;
     }
-    .project-link:hover { text-decoration: underline; }
+    .project-link:hover {
+      color: var(--accent);
+    }
 
     /* Skills Section */
     .skills-section {
-      background: #0b1120;
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 80px;
+      border-radius: 8px;
+      padding: 36px;
+      margin-bottom: 70px;
     }
     .skills-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 32px;
     }
     .skill-cat-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      font-family: 'Fira Code', monospace;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
     }
     .skill-list-items {
       list-style: none;
     }
     .skill-list-items li {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      margin-bottom: 8px;
+      font-size: 0.88rem;
+      color: #a1a1aa;
+      margin-bottom: 9px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     .skill-list-items li::before {
-      content: "▹";
-      color: var(--primary);
+      content: "—";
+      color: var(--text-dim);
+      font-size: 0.8rem;
     }
 
     /* Contact / CTA Banner */
     .cta-banner {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
-      border: 1px solid var(--border-accent);
-      border-radius: 16px;
-      padding: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 44px 32px;
       text-align: center;
-      margin-bottom: 80px;
-      position: relative;
+      margin-bottom: 70px;
     }
     .cta-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 12px;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
     }
     .cta-text {
       color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 28px;
-      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 26px;
+      font-size: 0.96rem;
+      line-height: 1.6;
     }
     .contact-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
+      gap: 12px;
     }
     .contact-pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 22px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
+      gap: 8px;
+      padding: 10px 18px;
+      background: #0f0f0f;
+      border: 1px solid var(--border-accent);
+      border-radius: 6px;
+      font-size: 0.88rem;
       font-weight: 500;
-      transition: all 0.2s;
+      color: #f4f4f5;
+      transition: all 0.15s ease;
     }
     .contact-pill:hover {
-      border-color: var(--primary);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      background: #171717;
+      color: #ffffff;
+      transform: translateY(-1px);
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 30px 0;
+      padding: 32px 0;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      font-family: 'Fira Code', monospace;
     }
 
     @media (max-width: 768px) {
-      h1.hero-name { font-size: 2.3rem; }
+      h1.hero-name { font-size: 2.2rem; }
       .nav-links { display: none; }
-      .cta-banner { padding: 32px 20px; }
+      .cta-banner { padding: 32px 18px; }
+      .skills-section { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -449,7 +457,7 @@
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#homelab">Homelab</a>
-        <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="btn-nav">📄 Download CV</a>
+        <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="btn-nav">Download CV ↗</a>
       </div>
     </div>
   </nav>
@@ -458,32 +466,30 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-glow"></div>
-      
       <div class="status-badge">
-        <span class="pulse-dot"></span>
-        <span>Systems Engineering & Open Source Infrastructure</span>
+        <span class="status-dot"></span>
+        <span>Systems Engineering &amp; Infrastructure</span>
       </div>
 
       <h1 class="hero-name">Usama Imran Cheema</h1>
-      <div class="hero-subtitle">Linux Systems Administrator & Cloud Infrastructure Engineer</div>
+      <div class="hero-subtitle">Linux Systems Administrator &amp; Infrastructure Engineer</div>
 
       <p class="hero-desc">
-        3+ years of practical Linux server administration, low-level POSIX systems engineering, and hybrid cloud operations (Azure & AWS). Specializing in bare-metal hypervisors (QEMU/KVM), defense-in-depth security hardening, and resilient systems tooling in C, Rust, and Go.
+        Practical Linux server administration, low-level POSIX systems engineering, and hybrid cloud operations (Azure &amp; AWS). Specializing in bare-metal hypervisors (QEMU/KVM), defense-in-depth security hardening, and resilient systems tooling in C, Rust, and Go.
       </p>
 
       <div class="hero-actions">
         <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="btn-primary">
-          <span>📄 View & Download CV (PDF)</span>
+          <span>Download CV (PDF) ↗</span>
         </a>
         <a href="https://github.com/ucmz851" target="_blank" class="btn-secondary">
-          <span>💻 GitHub (@ucmz851)</span>
+          <span>GitHub (@ucmz851)</span>
         </a>
         <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="btn-secondary">
-          <span>💼 LinkedIn</span>
+          <span>LinkedIn</span>
         </a>
         <a href="https://x.com/ucmz851" target="_blank" class="btn-secondary">
-          <span>𝕏 @ucmz851</span>
+          <span>X (@ucmz851)</span>
         </a>
       </div>
 
@@ -496,34 +502,31 @@
           <span class="terminal-title">ucheema@arch-prod:~</span>
         </div>
         <div class="terminal-body">
-          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">whoami && uptime</span></p>
-          <p class="output-green">usama-imran-cheema (Linux Systems & Cloud Engineer)</p>
-          <p class="output-muted">up 3 years, 142 days, 0 failures, load average: 0.12, 0.08, 0.05</p>
+          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">whoami &amp;&amp; uptime</span></p>
+          <p class="output-green">usama-imran-cheema (Linux Systems &amp; Cloud Infrastructure)</p>
+          <p class="output-muted">up 142 days, 16:23, 2 users, load average: 0.12, 0.08, 0.05</p>
           <br />
           <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">cat /etc/systems-philosophy.conf</span></p>
           <p class="output-cyan">hardware ➔ firmware ➔ kernel ➔ memory ➔ networking ➔ distributed systems ➔ security</p>
           <p class="output-muted">"Understanding systems from the bottom up to build, operate, and secure resilient infrastructure."</p>
           <br />
-          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">uname -srm && systemctl is-system-running</span></p>
-          <p class="output-green">Linux 6.x-arch1-1 x86_64 &bull; running</p>
+          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">uname -srm &amp;&amp; systemctl is-system-running</span></p>
+          <p class="output-green">Linux 6.12.1-arch1-1 x86_64 &bull; running</p>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section-head">
-      <div class="section-tag">// OPEN SOURCE & SYSTEMS ENGINEERING</div>
-      <h2 class="section-title">Featured Systems Projects</h2>
+      <div class="section-tag">// OPEN SOURCE &amp; SYSTEMS ENGINEERING</div>
+      <h2 class="section-title">Projects</h2>
     </section>
 
     <div class="projects-grid">
-      <!-- Project 1: down -->
-      <div class="project-card featured">
-        <span class="featured-badge">FLAGSHIP</span>
+      <!-- Project: down -->
+      <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>⚡ down</span>
-          </div>
+          <div class="project-name">down</div>
           <p class="project-desc">
             High-performance segmented download accelerator in C11. Engineered with lockless atomic bitfield crash recovery, posix_fallocate, dynamic work-stealing scheduling, and AWS SigV4 cloud authentication.
           </p>
@@ -536,16 +539,14 @@
           </div>
         </div>
         <a href="https://github.com/ucmz851/down" target="_blank" class="project-link">
-          View Source & Benchmarks ➔
+          GitHub Repository ↗
         </a>
       </div>
 
-      <!-- Project 2: containr -->
+      <!-- Project: containr -->
       <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>📦 containr</span>
-          </div>
+          <div class="project-name">containr</div>
           <p class="project-desc">
             Lightweight Linux container runtime written in Go from scratch. Isolates processes via Linux namespaces (PID, UTS, Mount, IPC), enforces cgroups v2 quotas (memory, CPU, max PIDs), and implements private mount propagation with chroot isolation.
           </p>
@@ -558,18 +559,16 @@
           </div>
         </div>
         <a href="https://github.com/ucmz851/containr" target="_blank" class="project-link">
-          View Repository & Architecture ➔
+          GitHub Repository ↗
         </a>
       </div>
 
-      <!-- Project 3: prom-linux-exporter -->
+      <!-- Project: prom-linux-exporter -->
       <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>📊 prom-linux-exporter</span>
-          </div>
+          <div class="project-name">prom-linux-exporter</div>
           <p class="project-desc">
-            Zero-dependency Linux Prometheus telemetry daemon in Go. Extracts real-time system metrics directly from the kernel /proc virtual filesystem (/proc/{stat,meminfo,loadavg,diskstats,net/dev}) with multi-stage Docker & Grafana stack.
+            Zero-dependency Linux Prometheus telemetry daemon in Go. Extracts real-time system metrics directly from the kernel /proc virtual filesystem (/proc/{stat,meminfo,loadavg,diskstats,net/dev}) with multi-stage Docker &amp; Grafana stack.
           </p>
           <div class="project-tags">
             <span class="tag">Go</span>
@@ -580,18 +579,16 @@
           </div>
         </div>
         <a href="https://github.com/ucmz851/prom-linux-exporter" target="_blank" class="project-link">
-          View Repository & Dashboards ➔
+          GitHub Repository ↗
         </a>
       </div>
 
-      <!-- Project 2: OmaSecurity -->
+      <!-- Project: OmaSecurity -->
       <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>🛡️ OmaSecurity</span>
-          </div>
+          <div class="project-name">OmaSecurity</div>
           <p class="project-desc">
-            Verified security posture auditor and system health monitor for the Omarchy Quattro shell. Analyzes system hardening, detects unauthorized privilege vectors, and enforces kernel/CIS benchmarks.
+            Security posture auditor and system health monitor for Linux environments. Analyzes system hardening, detects unauthorized privilege vectors, and audits kernel and CIS benchmarks.
           </p>
           <div class="project-tags">
             <span class="tag">Python</span>
@@ -601,16 +598,14 @@
           </div>
         </div>
         <a href="https://github.com/ucmz851/omasecurity" target="_blank" class="project-link">
-          View Repository ➔
+          GitHub Repository ↗
         </a>
       </div>
 
-      <!-- Project 3: OmaScan -->
+      <!-- Project: OmaScan -->
       <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>🌐 OmaScan</span>
-          </div>
+          <div class="project-name">OmaScan</div>
           <p class="project-desc">
             Cloud-sandboxed threat intelligence and reputation scanner. Integrates urlscan.io and VirusTotal APIs for automated domain, IP, SSL certificate, and network threat reconnaissance.
           </p>
@@ -622,18 +617,16 @@
           </div>
         </div>
         <a href="https://github.com/ucmz851/omascan" target="_blank" class="project-link">
-          View Repository ➔
+          GitHub Repository ↗
         </a>
       </div>
 
-      <!-- Project 4: Homelab Cluster -->
+      <!-- Project: Homelab Cluster -->
       <div class="project-card" id="homelab">
         <div>
-          <div class="project-name">
-            <span>🖥️ Virtualized Enterprise Homelab</span>
-          </div>
+          <div class="project-name">Virtualized Enterprise Homelab</div>
           <p class="project-desc">
-            24/7 multi-node virtualization cluster powered by QEMU/KVM and bare-metal Linux. Features local DNS resolution, Nginx reverse proxy, automated SSL renewal, strict UFW/Fail2ban defense, and Bash backup daemons.
+            24/7 multi-node virtualization cluster powered by QEMU/KVM and bare-metal Linux. Features local DNS resolution, Nginx reverse proxy, automated SSL renewal, strict UFW/Fail2ban defense, and automated backup daemons.
           </p>
           <div class="project-tags">
             <span class="tag">QEMU / KVM</span>
@@ -643,17 +636,15 @@
             <span class="tag">Systemd</span>
           </div>
         </div>
-        <span class="project-link" style="color: var(--text-muted);">
-          Self-Hosted Infrastructure ➔
+        <span class="project-link" style="color: var(--text-dim);">
+          Self-Hosted Infrastructure
         </span>
       </div>
 
-      <!-- Project 5: lgtui & ytplay-tui -->
+      <!-- Project: lgtui & ytplay-tui -->
       <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>🦀 lgtui & ytplay-tui</span>
-          </div>
+          <div class="project-name">lgtui &amp; ytplay-tui</div>
           <p class="project-desc">
             Terminal User Interfaces built in modern Rust utilizing the Ratatui framework. Features Wine/Proton runner isolation, asynchronous event processing, and keyboard-first UI architectures.
           </p>
@@ -665,28 +656,26 @@
           </div>
         </div>
         <a href="https://github.com/ucmz851/lgtui" target="_blank" class="project-link">
-          View Rust Repositories ➔
+          GitHub Repository ↗
         </a>
       </div>
 
-      <!-- Project 6: Cloud Deployments -->
+      <!-- Project: Cloud Deployments -->
       <div class="project-card">
         <div>
-          <div class="project-name">
-            <span>☁️ Azure & AWS Cloud Infrastructure</span>
-          </div>
+          <div class="project-name">Azure &amp; AWS Infrastructure</div>
           <p class="project-desc">
             Production deployments of secure Linux virtual machines on Azure (VNets, NSGs, Blob Storage) and AWS (EC2, VPC, S3). Automated bootstrapping via cloud-init and Bash provisioning scripts.
           </p>
           <div class="project-tags">
-            <span class="tag">Microsoft Azure</span>
+            <span class="tag">Azure</span>
             <span class="tag">AWS</span>
             <span class="tag">Cloud-Init</span>
-            <span class="tag">VNets</span>
+            <span class="tag">VPC / VNets</span>
           </div>
         </div>
         <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="project-link">
-          View Architecture on CV ➔
+          View Architecture on CV ↗
         </a>
       </div>
     </div>
@@ -694,56 +683,56 @@
     <!-- Skills Matrix -->
     <div class="skills-section" id="skills">
       <div class="section-tag">// TECHNICAL CAPABILITIES</div>
-      <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 28px;">Core Competencies & Stack</h3>
+      <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: #ffffff;">Core Competencies &amp; Stack</h3>
       
       <div class="skills-columns">
         <div>
-          <div class="skill-cat-title">🐧 Linux & Kernel</div>
+          <div class="skill-cat-title">Linux &amp; Kernel</div>
           <ul class="skill-list-items">
             <li>Ubuntu Server, Debian, RHEL, Arch</li>
             <li>POSIX APIs (mmap, posix_fallocate)</li>
-            <li>Systemd Daemons & Journalctl</li>
-            <li>Namespaces, cgroups & Process Diagnostics</li>
-            <li>Storage, LVM & POSIX File Primitives</li>
+            <li>Systemd Daemons &amp; Journalctl</li>
+            <li>Namespaces, cgroups &amp; Diagnostics</li>
+            <li>Storage, LVM &amp; POSIX File Primitives</li>
           </ul>
         </div>
 
         <div>
-          <div class="skill-cat-title">☁️ Cloud & Virtualization</div>
+          <div class="skill-cat-title">Cloud &amp; Virtualization</div>
           <ul class="skill-list-items">
             <li>Microsoft Azure (VMs, VNets, NSGs)</li>
             <li>AWS (EC2, VPC, S3, IAM, SigV4)</li>
-            <li>QEMU / KVM Hypervisors & Libvirt</li>
+            <li>QEMU / KVM Hypervisors &amp; Libvirt</li>
             <li>Docker Containerization</li>
-            <li>Cloud-init Infrastructure Automation</li>
+            <li>Cloud-init Automation</li>
           </ul>
         </div>
 
         <div>
-          <div class="skill-cat-title">🛡️ Security & Networks</div>
+          <div class="skill-cat-title">Security &amp; Networking</div>
           <ul class="skill-list-items">
             <li>TCP/IP, DNS, DHCP Routing</li>
-            <li>Nginx Reverse Proxy & HTTP/2</li>
-            <li>UFW, Iptables & Fail2ban</li>
+            <li>Nginx Reverse Proxy &amp; TLS/SSL</li>
+            <li>UFW, Iptables &amp; Fail2ban</li>
             <li>Threat Intel (VirusTotal, urlscan)</li>
-            <li>SSH Hardening (ED25519 Keys)</li>
+            <li>SSH Hardening (ED25519)</li>
           </ul>
         </div>
 
         <div>
-          <div class="skill-cat-title">⚙️ Code & Tooling</div>
+          <div class="skill-cat-title">Code &amp; Tooling</div>
           <ul class="skill-list-items">
             <li>C11 (POSIX Systems Programming)</li>
-            <li>Rust (TUI & Asynchronous Tools)</li>
-            <li>Go (CLI Tools & Automation)</li>
-            <li>Python & Modern Bash Scripting</li>
+            <li>Rust (TUI &amp; Asynchronous Tools)</li>
+            <li>Go (CLI Tools &amp; Telemetry)</li>
+            <li>Python &amp; Modern Bash Scripting</li>
             <li>Git, GitHub Actions CI/CD</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- CTA / Hire Me -->
+    <!-- Contact / CTA Banner -->
     <div class="cta-banner">
       <h3 class="cta-title">Let's Build Resilient Infrastructure</h3>
       <p class="cta-text">
@@ -752,16 +741,16 @@
 
       <div class="contact-grid">
         <a href="mailto:usamaimrancheema435@gmail.com" class="contact-pill">
-          <span>✉️</span> usamaimrancheema435@gmail.com
+          <span>✉</span> usamaimrancheema435@gmail.com
         </a>
         <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="contact-pill">
-          <span>💼</span> LinkedIn Profile
+          <span>LinkedIn</span>
         </a>
         <a href="https://x.com/ucmz851" target="_blank" class="contact-pill">
-          <span>𝕏</span> X (Twitter): @ucmz851
+          <span>X / Twitter</span>
         </a>
         <a href="https://github.com/ucmz851" target="_blank" class="contact-pill">
-          <span>💻</span> GitHub (@ucmz851)
+          <span>GitHub (@ucmz851)</span>
         </a>
       </div>
     </div>
@@ -771,7 +760,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>© 2026 Usama Imran Cheema &bull; Engineered with focus, technical depth, and Linux rigor.</p>
+      <p>&copy; 2026 Usama Imran Cheema &bull; Linux Systems &amp; Infrastructure Engineering</p>
     </div>
   </footer>
 
