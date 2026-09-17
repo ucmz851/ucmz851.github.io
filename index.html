@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Usama Imran Cheema</title>
-  <meta name="description" content="Systems Engineer on a mission to build revolutionary, safe-by-design technology for all users." />
-  
+  <meta name="description" content="Usama Imran Cheema — Purpose, vision, and mission to engineer fundamentally safe technology for humanity." />
+
+  <!-- JetBrains Mono Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #000000;
-      --card-bg: #080808;
-      --card-hover: #0f0f0f;
-      --border: #171717;
-      --border-hover: #2e2e2e;
+      --card: #080808;
+      --card-hover: #101010;
+      --border: #1a1a1a;
+      --border-hover: #333333;
       --text: #f4f4f5;
-      --text-muted: #999999;
+      --text-muted: #888888;
       --text-dim: #555555;
-      --accent: #ffffff;
       --link: #ffffff;
     }
 
@@ -38,40 +38,30 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.7;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.8;
+      font-size: 0.94rem;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    code, pre, .mono {
-      font-family: 'Fira Code', monospace;
-    }
-
-    code {
-      font-size: 0.85em;
-      background: #111111;
-      border: 1px solid #222222;
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: #e4e4e7;
     }
 
     a {
       color: var(--link);
       text-decoration: none;
-      transition: opacity 0.15s ease, color 0.15s ease;
+      transition: all 0.15s ease;
     }
 
     a:hover {
-      opacity: 0.8;
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     /* Layout */
     .container {
-      max-width: 660px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 72px 24px 96px;
+      padding: 80px 24px 100px;
     }
 
     /* Header */
@@ -80,37 +70,33 @@
     }
 
     .name {
-      font-size: 1.9rem;
+      font-size: 1.65rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: #ffffff;
       margin-bottom: 6px;
     }
 
-    .title {
-      font-size: 0.98rem;
+    .tagline {
+      font-size: 0.88rem;
       color: var(--text-muted);
       font-weight: 400;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
-    .quick-links {
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      font-size: 0.88rem;
-      font-family: 'Fira Code', monospace;
-      color: var(--text-dim);
+      font-size: 0.82rem;
     }
 
-    .quick-links a {
-      color: #d4d4d8;
+    .nav-links a {
+      color: #a1a1aa;
     }
 
-    .quick-links a:hover {
+    .nav-links a:hover {
       color: #ffffff;
-      text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
     .divider {
@@ -119,26 +105,24 @@
       margin: 40px 0;
     }
 
-    /* Section */
+    /* Sections */
     section {
-      margin-bottom: 42px;
+      margin-bottom: 44px;
     }
 
-    .section-title {
-      font-family: 'Fira Code', monospace;
-      font-size: 0.78rem;
-      font-weight: 500;
+    .label {
+      font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--text-dim);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .prose p {
-      font-size: 0.97rem;
       color: var(--text-muted);
-      margin-bottom: 14px;
-      line-height: 1.7;
+      margin-bottom: 16px;
+      line-height: 1.8;
     }
 
     .prose p:last-child {
@@ -150,98 +134,90 @@
       font-weight: 600;
     }
 
-    /* Highlight Mission Box */
-    .mission-box {
-      background: #080808;
-      border: 1px solid #1a1a1a;
+    /* Purpose Highlight Card */
+    .purpose-card {
+      background: var(--card);
+      border: 1px solid var(--border);
       border-left: 2px solid #ffffff;
-      padding: 18px 20px;
-      border-radius: 6px;
-      margin: 18px 0;
+      padding: 20px 22px;
+      border-radius: 4px;
+      margin: 20px 0;
     }
 
-    .mission-box p {
-      font-size: 0.95rem;
-      color: #e4e4e7;
-      line-height: 1.65;
+    .purpose-card p {
+      color: #ededed;
+      line-height: 1.75;
+      font-size: 0.92rem;
       margin: 0;
     }
 
-    /* Join CTA Box */
-    .join-box {
+    /* Action Box */
+    .action-box {
       margin-top: 18px;
-      background: #080808;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 22px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      border-radius: 6px;
+      padding: 22px;
     }
 
-    .join-title {
-      font-size: 1rem;
+    .action-title {
+      font-size: 0.92rem;
       font-weight: 600;
       color: #ffffff;
+      margin-bottom: 8px;
     }
 
-    .join-desc {
-      font-size: 0.92rem;
+    .action-desc {
+      font-size: 0.86rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.7;
+      margin-bottom: 18px;
     }
 
-    .join-actions {
+    .action-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 4px;
     }
 
-    .btn-action {
+    .btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 16px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      text-decoration: none !important;
+    }
+
+    .btn-primary {
       background: #ffffff;
       color: #000000 !important;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background 0.15s ease;
     }
 
-    .btn-action:hover {
+    .btn-primary:hover {
       background: #e4e4e7;
-      opacity: 1;
     }
 
-    .btn-action-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
+    .btn-outline {
       background: transparent;
       border: 1px solid var(--border);
-      color: #f4f4f5;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: all 0.15s ease;
+      color: #e4e4e7 !important;
     }
 
-    .btn-action-ghost:hover {
+    .btn-outline:hover {
       border-color: var(--border-hover);
       background: #111111;
-      opacity: 1;
     }
 
-    /* Single GitHub Link Box */
+    /* Single GitHub Link Card */
     .github-box {
-      margin-top: 18px;
-      background: var(--card-bg);
+      margin-top: 16px;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       transition: all 0.15s ease;
     }
 
@@ -253,92 +229,45 @@
     .github-link {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 18px 20px;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .github-link:hover {
-      opacity: 1;
+      gap: 14px;
+      padding: 16px 20px;
+      text-decoration: none !important;
     }
 
     .github-icon {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       fill: #ffffff;
+      flex-shrink: 0;
     }
 
-    .github-details {
+    .github-text {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
     }
 
     .github-handle {
-      font-family: 'Fira Code', monospace;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
-    .github-sub {
-      font-size: 0.83rem;
+    .github-desc {
+      font-size: 0.78rem;
       color: var(--text-dim);
-    }
-
-    /* Contact List */
-    .contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #111111;
-      font-size: 0.92rem;
-    }
-
-    .contact-item:last-child {
-      border-bottom: none;
-    }
-
-    .contact-label {
-      font-family: 'Fira Code', monospace;
-      font-size: 0.82rem;
-      color: var(--text-dim);
-    }
-
-    .contact-val {
-      color: #ffffff;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.88rem;
-    }
-
-    .contact-val:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
     /* Footer */
     footer {
-      margin-top: 56px;
+      margin-top: 60px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       color: var(--text-dim);
-      font-family: 'Fira Code', monospace;
     }
 
     @media (max-width: 600px) {
@@ -346,12 +275,7 @@
         padding: 48px 20px 64px;
       }
       .name {
-        font-size: 1.6rem;
-      }
-      .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+        font-size: 1.45rem;
       }
       footer {
         flex-direction: column;
@@ -368,84 +292,89 @@
     <!-- Header -->
     <header>
       <h1 class="name">Usama Imran Cheema</h1>
-      <p class="title">Systems Engineer &bull; Building Safe Infrastructure</p>
+      <p class="tagline">Engineering safe, sovereign technology for humanity.</p>
 
-      <nav class="quick-links">
-        <a href="https://github.com/ucmz851" target="_blank">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank">LinkedIn ↗</a>
-        <a href="https://x.com/ucmz851" target="_blank">X ↗</a>
-        <a href="mailto:usamaimrancheema435@gmail.com">Email ↗</a>
+      <nav class="nav-links">
+        <a href="https://github.com/ucmz851" target="_blank">github ↗</a>
+        <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank">linkedin ↗</a>
+        <a href="https://x.com/ucmz851" target="_blank">x ↗</a>
+        <a href="mailto:usamaimrancheema435@gmail.com">email ↗</a>
       </nav>
     </header>
 
     <div class="divider"></div>
 
     <main>
-      <!-- Vision & Mission -->
+
+      <!-- Who Am I -->
       <section>
-        <h2 class="section-title">// Vision &amp; Mission</h2>
+        <div class="label">// who am i</div>
         <div class="prose">
           <p>
-            I am on a mission to build revolutionary, foundational technology that is <strong>inherently safe, resilient, and sovereign for all users</strong>.
+            I am a builder and systems engineer.
           </p>
-          <div class="mission-box">
+          <p>
+            I believe that technology should serve human dignity, preserve freedom, and protect every individual who depends on it.
+          </p>
+        </div>
+      </section>
+
+      <!-- Purpose -->
+      <section>
+        <div class="label">// my purpose</div>
+        <div class="prose">
+          <p>
+            My purpose on this planet is to build revolutionary technology that is <strong>inherently safe, resilient, and honest for all human beings</strong>.
+          </p>
+
+          <div class="purpose-card">
             <p>
-              Most modern computing is fragile, bloated, and unsafe by design. True safety cannot be an afterthought patched on top of broken layers—it must be architected into the bedrock: from kernel primitives and memory safety to decentralized, zero-trust infrastructure.
+              Much of the modern digital world has become fragile, manipulative, and unsafe by design. Systems are built to harvest, exploit, and compromise the people using them.
+              <br /><br />
+              I am here to change that. I exist to engineer foundational computing that puts user safety, absolute privacy, and human agency first.
             </p>
           </div>
+
           <p>
-            My vision is computing technology that fundamentally protects user privacy, eliminates structural vulnerabilities, and guarantees resilience under extreme conditions.
+            Safety is not a marketing feature. It is a fundamental moral responsibility.
           </p>
         </div>
       </section>
 
-      <!-- About Me -->
+      <!-- The Mission / Join Me -->
       <section>
-        <h2 class="section-title">// About Me</h2>
+        <div class="label">// the mission</div>
         <div class="prose">
           <p>
-            I am a Linux Systems Administrator and POSIX systems engineer with 3+ years of intensive experience in low-level Linux internals, bare-metal hypervisors (QEMU/KVM), and hybrid cloud environments (Azure &amp; AWS).
-          </p>
-          <p>
-            I build systems software from the bottom up—focusing on lockless concurrency, kernel interfaces (<code>/proc</code>, <code>cgroups v2</code>, <code>namespaces</code>), defense-in-depth networking, and high-performance tooling in C, Rust, and Go.
-          </p>
-        </div>
-      </section>
-
-      <!-- Join Me -->
-      <section>
-        <h2 class="section-title">// Join Me</h2>
-        <div class="prose">
-          <p>
-            Building technology that changes the paradigm is not a solo effort. I am actively looking for ambitious engineers, systems researchers, and builders who share this conviction.
+            Building technology that reshapes the future is not a path walked alone. I am looking for people to join me in this mission.
           </p>
         </div>
 
-        <div class="join-box">
-          <div class="join-title">Let's build technology that protects humanity.</div>
-          <div class="join-desc">
-            If you care about deep systems, low-level engineering, uncompromised security, and creating tools that empower people without exploiting them—let's connect.
+        <div class="action-box">
+          <div class="action-title">Let's build technology that protects humanity.</div>
+          <div class="action-desc">
+            If you are an ambitious engineer, thinker, or builder who refuses to settle for the status quo, and wants to create technology that genuinely shields and empowers users—reach out. Let's work together.
           </div>
-          <div class="join-actions">
-            <a href="mailto:usamaimrancheema435@gmail.com" class="btn-action">
-              <span>Contact via Email ↗</span>
+          <div class="action-buttons">
+            <a href="mailto:usamaimrancheema435@gmail.com" class="btn btn-primary">
+              get in touch ↗
             </a>
-            <a href="https://x.com/ucmz851" target="_blank" class="btn-action-ghost">
-              <span>Message on X ↗</span>
+            <a href="https://x.com/ucmz851" target="_blank" class="btn btn-outline">
+              x.com/@ucmz851 ↗
             </a>
-            <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="btn-action-ghost">
-              <span>LinkedIn ↗</span>
+            <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="btn btn-outline">
+              linkedin ↗
             </a>
           </div>
         </div>
       </section>
 
-      <!-- Code & Projects (Single GitHub Link) -->
+      <!-- Work / Single GitHub Link -->
       <section>
-        <h2 class="section-title">// Code &amp; Projects</h2>
+        <div class="label">// open source &amp; code</div>
         <div class="prose">
           <p>
-            All my systems software, concurrency engines, telemetry daemons, and low-level experiments are developed openly on GitHub.
+            Everything I build is developed transparently and in the open.
           </p>
         </div>
 
@@ -454,42 +383,20 @@
             <svg class="github-icon" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
-            <div class="github-details">
+            <div class="github-text">
               <span class="github-handle">github.com/ucmz851 ↗</span>
-              <span class="github-sub">Explore all open-source repositories and systems tooling</span>
+              <span class="github-desc">explore repositories, tools, and code</span>
             </div>
           </a>
         </div>
       </section>
 
-      <!-- Connect -->
-      <section>
-        <h2 class="section-title">// Connect</h2>
-        <ul class="contact-list">
-          <li class="contact-item">
-            <span class="contact-label">Email</span>
-            <a href="mailto:usamaimrancheema435@gmail.com" class="contact-val">usamaimrancheema435@gmail.com</a>
-          </li>
-          <li class="contact-item">
-            <span class="contact-label">GitHub</span>
-            <a href="https://github.com/ucmz851" target="_blank" class="contact-val">github.com/ucmz851 ↗</a>
-          </li>
-          <li class="contact-item">
-            <span class="contact-label">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="contact-val">linkedin.com/in/usama-imran ↗</a>
-          </li>
-          <li class="contact-item">
-            <span class="contact-label">X</span>
-            <a href="https://x.com/ucmz851" target="_blank" class="contact-val">@ucmz851 ↗</a>
-          </li>
-        </ul>
-      </section>
     </main>
 
     <!-- Footer -->
     <footer>
-      <span>&copy; 2026 Usama Imran Cheema</span>
-      <span>ucheema@linux:~$</span>
+      <span>&copy; 2026 usama imran cheema</span>
+      <span>pitch black &bull; jetbrains mono</span>
     </footer>
 
   </div>
