@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usama Imran Cheema | Linux Systems & Infrastructure Engineer</title>
-  <meta name="description" content="Portfolio of Usama Imran Cheema - Linux Systems Administrator, C/POSIX Systems Programmer, Cloud Infrastructure & Security Engineer." />
+  <title>Usama Imran Cheema — Linux Systems &amp; Infrastructure Engineer</title>
+  <meta name="description" content="Personal site of Usama Imran Cheema. Linux Systems Administrator, C/POSIX Systems Programmer, Cloud Infrastructure &amp; Security Engineer." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #000000;
-      --bg-surface: #080808;
-      --bg-card: #0a0a0a;
-      --bg-card-hover: #111111;
-      --border: #1a1a1a;
-      --border-accent: #262626;
-      --border-hover: #383838;
+      --card-bg: #080808;
+      --card-hover: #0f0f0f;
+      --border: #171717;
+      --border-hover: #2e2e2e;
       --text: #f4f4f5;
       --text-muted: #999999;
-      --text-dim: #666666;
-      --primary: #ffffff;
-      --accent: #38bdf8;
-      --green: #22c55e;
+      --text-dim: #555555;
+      --accent: #ffffff;
+      --link: #ffffff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       background-color: var(--bg);
+      color-scheme: dark;
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -48,721 +49,391 @@
       font-family: 'Fira Code', monospace;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #000000;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #222222;
+    code {
+      font-size: 0.85em;
+      background: #111111;
+      border: 1px solid #222222;
+      padding: 2px 6px;
       border-radius: 4px;
+      color: #e4e4e7;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #333333;
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      transition: opacity 0.15s ease, color 0.15s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
     }
 
     /* Layout */
     .container {
-      max-width: 1080px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 72px 24px 96px;
     }
 
-    /* Navbar */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(0, 0, 0, 0.85);
-      border-bottom: 1px solid var(--border);
+    /* Header */
+    header {
+      margin-bottom: 56px;
     }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
-    }
-    .logo {
-      font-family: 'Fira Code', monospace;
-      font-weight: 600;
-      font-size: 0.95rem;
+
+    .name {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
       color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      letter-spacing: -0.01em;
+      margin-bottom: 6px;
     }
-    .logo:hover {
-      color: #d4d4d8;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 0.88rem;
+
+    .title {
+      font-size: 1rem;
       color: var(--text-muted);
-    }
-    .nav-links a {
-      transition: color 0.15s ease;
-    }
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-    .btn-nav {
-      background: #ffffff;
-      color: #000000 !important;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      transition: background 0.15s ease, transform 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-nav:hover {
-      background: #e4e4e7;
-      transform: translateY(-1px);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 80px 0 50px;
-    }
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
-      border-radius: 9999px;
-      color: #a1a1aa;
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-weight: 400;
       margin-bottom: 24px;
     }
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--green);
-    }
-    h1.hero-name {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 12px;
-      color: #ffffff;
-    }
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: #a1a1aa;
-      font-weight: 500;
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
-    }
-    .hero-desc {
-      font-size: 1.02rem;
-      color: var(--text-muted);
-      max-width: 720px;
-      margin-bottom: 32px;
-      line-height: 1.7;
-    }
-    .hero-actions {
+
+    .quick-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
+      font-size: 0.88rem;
+      font-family: 'Fira Code', monospace;
+      color: var(--text-dim);
+    }
+
+    .quick-links a {
+      color: #d4d4d8;
+    }
+
+    .quick-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0;
+    }
+
+    /* Section */
+    section {
       margin-bottom: 48px;
     }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffffff;
-      color: #000000;
-      font-weight: 600;
-      padding: 11px 20px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      transition: background 0.15s ease, transform 0.15s ease;
-    }
-    .btn-primary:hover {
-      background: #e4e4e7;
-      transform: translateY(-1px);
-    }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #0a0a0a;
-      border: 1px solid var(--border-accent);
-      color: var(--text);
-      font-weight: 500;
-      padding: 11px 20px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      transition: all 0.15s ease;
-    }
-    .btn-secondary:hover {
-      background: #141414;
-      border-color: var(--border-hover);
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
 
-    /* Terminal Widget */
-    .terminal-box {
-      background: #050505;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 70px;
-    }
-    .terminal-header {
-      background: #0a0a0a;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .dot-red { background: #3f3f46; }
-    .dot-yellow { background: #3f3f46; }
-    .dot-green { background: #3f3f46; }
-    .terminal-title {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      margin-left: auto;
-      margin-right: auto;
-      font-family: 'Fira Code', monospace;
-    }
-    .terminal-body {
-      padding: 20px 22px;
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: #e4e4e7;
-    }
-    .prompt { color: #a1a1aa; }
-    .command { color: #ffffff; }
-    .output-green { color: #4ade80; }
-    .output-cyan { color: #38bdf8; }
-    .output-muted { color: #71717a; }
-
-    /* Section Headers */
-    .section-head {
-      margin-bottom: 32px;
-    }
-    .section-tag {
-      color: var(--text-dim);
+    .section-title {
       font-family: 'Fira Code', monospace;
       font-size: 0.8rem;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-    }
-    .section-title {
-      font-size: 1.85rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 18px;
-      margin-bottom: 70px;
-    }
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-    }
-    .project-card:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-    }
-    .project-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      font-family: 'Fira Code', monospace;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
       margin-bottom: 18px;
     }
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 22px;
-    }
-    .tag {
-      font-size: 0.75rem;
-      font-family: 'Fira Code', monospace;
-      background: #0f0f0f;
-      border: 1px solid #1f1f1f;
-      padding: 3px 8px;
-      border-radius: 4px;
-      color: #a1a1aa;
-    }
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #ffffff;
-      font-weight: 500;
-      font-size: 0.85rem;
-      font-family: 'Fira Code', monospace;
-      transition: color 0.15s ease;
-    }
-    .project-link:hover {
-      color: var(--accent);
-    }
 
-    /* Skills Section */
-    .skills-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 36px;
-      margin-bottom: 70px;
-    }
-    .skills-columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-    }
-    .skill-cat-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      font-family: 'Fira Code', monospace;
-      color: #ffffff;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-    .skill-list-items {
-      list-style: none;
-    }
-    .skill-list-items li {
-      font-size: 0.88rem;
-      color: #a1a1aa;
-      margin-bottom: 9px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .skill-list-items li::before {
-      content: "—";
-      color: var(--text-dim);
-      font-size: 0.8rem;
-    }
-
-    /* Contact / CTA Banner */
-    .cta-banner {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 44px 32px;
-      text-align: center;
-      margin-bottom: 70px;
-    }
-    .cta-title {
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
-    .cta-text {
+    .prose p {
+      font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 560px;
-      margin: 0 auto 26px;
-      font-size: 0.96rem;
-      line-height: 1.6;
+      margin-bottom: 16px;
+      line-height: 1.75;
     }
-    .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+
+    .prose p:last-child {
+      margin-bottom: 0;
     }
-    .contact-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      background: #0f0f0f;
-      border: 1px solid var(--border-accent);
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: #f4f4f5;
+
+    .prose strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Single GitHub Link Box */
+    .github-box {
+      margin-top: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
       transition: all 0.15s ease;
     }
-    .contact-pill:hover {
+
+    .github-box:hover {
+      background: var(--card-hover);
       border-color: var(--border-hover);
-      background: #171717;
+    }
+
+    .github-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .github-link:hover {
+      opacity: 1;
+    }
+
+    .github-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      fill: #ffffff;
+    }
+
+    .github-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .github-handle {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
       color: #ffffff;
-      transform: translateY(-1px);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .github-sub {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .skill-group {
+      padding-bottom: 16px;
+      border-bottom: 1px solid #111111;
+    }
+
+    .skill-group:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .skill-name {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .skill-items {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Contact List */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #111111;
+      font-size: 0.92rem;
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .contact-val {
+      color: #ffffff;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+    }
+
+    .contact-val:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* Footer */
     footer {
+      margin-top: 64px;
+      padding-top: 24px;
       border-top: 1px solid var(--border);
-      padding: 32px 0;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
       color: var(--text-dim);
-      font-size: 0.82rem;
       font-family: 'Fira Code', monospace;
     }
 
-    @media (max-width: 768px) {
-      h1.hero-name { font-size: 2.2rem; }
-      .nav-links { display: none; }
-      .cta-banner { padding: 32px 18px; }
-      .skills-section { padding: 24px 20px; }
+    @media (max-width: 600px) {
+      .container {
+        padding: 48px 20px 64px;
+      }
+      .name {
+        font-size: 1.6rem;
+      }
+      .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="container nav-inner">
-      <a href="#" class="logo">
-        <span>ucheema@linux:~$</span>
-      </a>
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#homelab">Homelab</a>
-        <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="btn-nav">Download CV ↗</a>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span>Systems Engineering &amp; Infrastructure</span>
-      </div>
+    <!-- Header -->
+    <header>
+      <h1 class="name">Usama Imran Cheema</h1>
+      <p class="title">Linux Systems Administrator &amp; Infrastructure Engineer</p>
 
-      <h1 class="hero-name">Usama Imran Cheema</h1>
-      <div class="hero-subtitle">Linux Systems Administrator &amp; Infrastructure Engineer</div>
+      <nav class="quick-links">
+        <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank">CV (PDF) ↗</a>
+        <a href="https://github.com/ucmz851" target="_blank">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank">LinkedIn ↗</a>
+        <a href="https://x.com/ucmz851" target="_blank">X ↗</a>
+        <a href="mailto:usamaimrancheema435@gmail.com">Email ↗</a>
+      </nav>
+    </header>
 
-      <p class="hero-desc">
-        Practical Linux server administration, low-level POSIX systems engineering, and hybrid cloud operations (Azure &amp; AWS). Specializing in bare-metal hypervisors (QEMU/KVM), defense-in-depth security hardening, and resilient systems tooling in C, Rust, and Go.
-      </p>
+    <div class="divider"></div>
 
-      <div class="hero-actions">
-        <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="btn-primary">
-          <span>Download CV (PDF) ↗</span>
-        </a>
-        <a href="https://github.com/ucmz851" target="_blank" class="btn-secondary">
-          <span>GitHub (@ucmz851)</span>
-        </a>
-        <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="btn-secondary">
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://x.com/ucmz851" target="_blank" class="btn-secondary">
-          <span>X (@ucmz851)</span>
-        </a>
-      </div>
-
-      <!-- Live Terminal Simulation -->
-      <div class="terminal-box">
-        <div class="terminal-header">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-          <span class="terminal-title">ucheema@arch-prod:~</span>
-        </div>
-        <div class="terminal-body">
-          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">whoami &amp;&amp; uptime</span></p>
-          <p class="output-green">usama-imran-cheema (Linux Systems &amp; Cloud Infrastructure)</p>
-          <p class="output-muted">up 142 days, 16:23, 2 users, load average: 0.12, 0.08, 0.05</p>
-          <br />
-          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">cat /etc/systems-philosophy.conf</span></p>
-          <p class="output-cyan">hardware ➔ firmware ➔ kernel ➔ memory ➔ networking ➔ distributed systems ➔ security</p>
-          <p class="output-muted">"Understanding systems from the bottom up to build, operate, and secure resilient infrastructure."</p>
-          <br />
-          <p><span class="prompt">ucheema@arch-prod:~$</span> <span class="command">uname -srm &amp;&amp; systemctl is-system-running</span></p>
-          <p class="output-green">Linux 6.12.1-arch1-1 x86_64 &bull; running</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-head">
-      <div class="section-tag">// OPEN SOURCE &amp; SYSTEMS ENGINEERING</div>
-      <h2 class="section-title">Projects</h2>
-    </section>
-
-    <div class="projects-grid">
-      <!-- Project: down -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">down</div>
-          <p class="project-desc">
-            High-performance segmented download accelerator in C11. Engineered with lockless atomic bitfield crash recovery, posix_fallocate, dynamic work-stealing scheduling, and AWS SigV4 cloud authentication.
+    <main>
+      <!-- About -->
+      <section>
+        <h2 class="section-title">// About</h2>
+        <div class="prose">
+          <p>
+            I am a Linux Systems Administrator and Cloud Infrastructure Engineer with 3+ years of intensive hands-on experience in low-level Linux administration, POSIX systems engineering, server security hardening, and hybrid cloud operations across Microsoft Azure and AWS.
           </p>
-          <div class="project-tags">
-            <span class="tag">C11</span>
-            <span class="tag">POSIX</span>
-            <span class="tag">mmap</span>
-            <span class="tag">AWS SigV4</span>
-            <span class="tag">Concurrency</span>
+          <p>
+            My engineering philosophy centers on understanding computing systems from the bottom up: hardware, firmware, kernel internals, memory management, POSIX syscalls, network protocols, and distributed resilience.
+          </p>
+          <p>
+            I maintain and operate 24/7 virtualized server clusters powered by bare-metal <strong>QEMU/KVM</strong> and Linux hypervisors. I actively diagnose and secure systems using deep network telemetry (TCP/IP, DNS, Nginx reverse proxies, UFW/Iptables, Fail2ban), and automate infrastructure using modern Bash and cloud-init.
+          </p>
+        </div>
+      </section>
+
+      <!-- Projects & GitHub -->
+      <section>
+        <h2 class="section-title">// Projects &amp; Code</h2>
+        <div class="prose">
+          <p>
+            I engineer systems software with an emphasis on low-level performance, lockless concurrency, and zero-dependency architectures. My work spans segmented POSIX download engines in C11, container runtimes built from scratch using Linux namespaces and cgroups v2 in Go, zero-dependency kernel telemetry daemons querying <code>/proc</code>, and asynchronous terminal user interfaces in Rust.
+          </p>
+          <p>
+            All my projects, source code, benchmarks, and infrastructure configurations are open source and hosted on GitHub:
+          </p>
+        </div>
+
+        <div class="github-box">
+          <a href="https://github.com/ucmz851" target="_blank" class="github-link">
+            <svg class="github-icon" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <div class="github-details">
+              <span class="github-handle">github.com/ucmz851 ↗</span>
+              <span class="github-sub">Explore all repositories, systems tooling, and source code</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Technical Capabilities -->
+      <section>
+        <h2 class="section-title">// Technical Focus</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <div class="skill-name">Operating Systems &amp; Kernel</div>
+            <div class="skill-items">
+              Ubuntu Server, Debian, RHEL, Arch Linux &bull; POSIX APIs (<code>mmap</code>, <code>posix_fallocate</code>) &bull; Namespaces &amp; cgroups v2 &bull; Systemd daemons &bull; <code>/proc</code> telemetry &bull; Storage &amp; LVM
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-name">Virtualization &amp; Cloud</div>
+            <div class="skill-items">
+              QEMU/KVM bare-metal hypervisors &bull; Libvirt &bull; Docker &bull; Microsoft Azure (VMs, VNets, Subnets, NSGs) &bull; AWS (EC2, VPC, S3, IAM, SigV4) &bull; Cloud-init automation
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-name">Networking &amp; Security</div>
+            <div class="skill-items">
+              TCP/IP, DNS, DHCP routing &bull; Nginx reverse proxy &bull; TLS/SSL certificates &bull; UFW, Iptables &amp; Fail2ban &bull; SSH key hardening (ED25519) &bull; System audit trails
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-name">Languages &amp; Tooling</div>
+            <div class="skill-items">
+              C11 (POSIX Systems) &bull; Go &bull; Rust &bull; Python &bull; Modern Bash &bull; Git &amp; GitHub Actions CI/CD
+            </div>
           </div>
         </div>
-        <a href="https://github.com/ucmz851/down" target="_blank" class="project-link">
-          GitHub Repository ↗
-        </a>
-      </div>
+      </section>
 
-      <!-- Project: containr -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">containr</div>
-          <p class="project-desc">
-            Lightweight Linux container runtime written in Go from scratch. Isolates processes via Linux namespaces (PID, UTS, Mount, IPC), enforces cgroups v2 quotas (memory, CPU, max PIDs), and implements private mount propagation with chroot isolation.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Go</span>
-            <span class="tag">Linux Namespaces</span>
-            <span class="tag">cgroups v2</span>
-            <span class="tag">Syscalls</span>
-            <span class="tag">chroot</span>
-          </div>
-        </div>
-        <a href="https://github.com/ucmz851/containr" target="_blank" class="project-link">
-          GitHub Repository ↗
-        </a>
-      </div>
+      <!-- Connect -->
+      <section>
+        <h2 class="section-title">// Connect</h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:usamaimrancheema435@gmail.com" class="contact-val">usamaimrancheema435@gmail.com</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">GitHub</span>
+            <a href="https://github.com/ucmz851" target="_blank" class="contact-val">github.com/ucmz851 ↗</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="contact-val">linkedin.com/in/usama-imran ↗</a>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">X</span>
+            <a href="https://x.com/ucmz851" target="_blank" class="contact-val">@ucmz851 ↗</a>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-      <!-- Project: prom-linux-exporter -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">prom-linux-exporter</div>
-          <p class="project-desc">
-            Zero-dependency Linux Prometheus telemetry daemon in Go. Extracts real-time system metrics directly from the kernel /proc virtual filesystem (/proc/{stat,meminfo,loadavg,diskstats,net/dev}) with multi-stage Docker &amp; Grafana stack.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Go</span>
-            <span class="tag">Prometheus</span>
-            <span class="tag">/proc VFS</span>
-            <span class="tag">Docker Compose</span>
-            <span class="tag">Grafana</span>
-          </div>
-        </div>
-        <a href="https://github.com/ucmz851/prom-linux-exporter" target="_blank" class="project-link">
-          GitHub Repository ↗
-        </a>
-      </div>
-
-      <!-- Project: OmaSecurity -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">OmaSecurity</div>
-          <p class="project-desc">
-            Security posture auditor and system health monitor for Linux environments. Analyzes system hardening, detects unauthorized privilege vectors, and audits kernel and CIS benchmarks.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">QML</span>
-            <span class="tag">Linux Hardening</span>
-            <span class="tag">systemd</span>
-          </div>
-        </div>
-        <a href="https://github.com/ucmz851/omasecurity" target="_blank" class="project-link">
-          GitHub Repository ↗
-        </a>
-      </div>
-
-      <!-- Project: OmaScan -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">OmaScan</div>
-          <p class="project-desc">
-            Cloud-sandboxed threat intelligence and reputation scanner. Integrates urlscan.io and VirusTotal APIs for automated domain, IP, SSL certificate, and network threat reconnaissance.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Threat Intel</span>
-            <span class="tag">VirusTotal API</span>
-            <span class="tag">DNS/SSL</span>
-          </div>
-        </div>
-        <a href="https://github.com/ucmz851/omascan" target="_blank" class="project-link">
-          GitHub Repository ↗
-        </a>
-      </div>
-
-      <!-- Project: Homelab Cluster -->
-      <div class="project-card" id="homelab">
-        <div>
-          <div class="project-name">Virtualized Enterprise Homelab</div>
-          <p class="project-desc">
-            24/7 multi-node virtualization cluster powered by QEMU/KVM and bare-metal Linux. Features local DNS resolution, Nginx reverse proxy, automated SSL renewal, strict UFW/Fail2ban defense, and automated backup daemons.
-          </p>
-          <div class="project-tags">
-            <span class="tag">QEMU / KVM</span>
-            <span class="tag">Nginx</span>
-            <span class="tag">UFW</span>
-            <span class="tag">Fail2ban</span>
-            <span class="tag">Systemd</span>
-          </div>
-        </div>
-        <span class="project-link" style="color: var(--text-dim);">
-          Self-Hosted Infrastructure
-        </span>
-      </div>
-
-      <!-- Project: lgtui & ytplay-tui -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">lgtui &amp; ytplay-tui</div>
-          <p class="project-desc">
-            Terminal User Interfaces built in modern Rust utilizing the Ratatui framework. Features Wine/Proton runner isolation, asynchronous event processing, and keyboard-first UI architectures.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Rust</span>
-            <span class="tag">Ratatui</span>
-            <span class="tag">Async</span>
-            <span class="tag">Wine/Linux</span>
-          </div>
-        </div>
-        <a href="https://github.com/ucmz851/lgtui" target="_blank" class="project-link">
-          GitHub Repository ↗
-        </a>
-      </div>
-
-      <!-- Project: Cloud Deployments -->
-      <div class="project-card">
-        <div>
-          <div class="project-name">Azure &amp; AWS Infrastructure</div>
-          <p class="project-desc">
-            Production deployments of secure Linux virtual machines on Azure (VNets, NSGs, Blob Storage) and AWS (EC2, VPC, S3). Automated bootstrapping via cloud-init and Bash provisioning scripts.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Azure</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Cloud-Init</span>
-            <span class="tag">VPC / VNets</span>
-          </div>
-        </div>
-        <a href="Usama_Imran_Cheema_Resume.pdf?v=2" target="_blank" class="project-link">
-          View Architecture on CV ↗
-        </a>
-      </div>
-    </div>
-
-    <!-- Skills Matrix -->
-    <div class="skills-section" id="skills">
-      <div class="section-tag">// TECHNICAL CAPABILITIES</div>
-      <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: #ffffff;">Core Competencies &amp; Stack</h3>
-      
-      <div class="skills-columns">
-        <div>
-          <div class="skill-cat-title">Linux &amp; Kernel</div>
-          <ul class="skill-list-items">
-            <li>Ubuntu Server, Debian, RHEL, Arch</li>
-            <li>POSIX APIs (mmap, posix_fallocate)</li>
-            <li>Systemd Daemons &amp; Journalctl</li>
-            <li>Namespaces, cgroups &amp; Diagnostics</li>
-            <li>Storage, LVM &amp; POSIX File Primitives</li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="skill-cat-title">Cloud &amp; Virtualization</div>
-          <ul class="skill-list-items">
-            <li>Microsoft Azure (VMs, VNets, NSGs)</li>
-            <li>AWS (EC2, VPC, S3, IAM, SigV4)</li>
-            <li>QEMU / KVM Hypervisors &amp; Libvirt</li>
-            <li>Docker Containerization</li>
-            <li>Cloud-init Automation</li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="skill-cat-title">Security &amp; Networking</div>
-          <ul class="skill-list-items">
-            <li>TCP/IP, DNS, DHCP Routing</li>
-            <li>Nginx Reverse Proxy &amp; TLS/SSL</li>
-            <li>UFW, Iptables &amp; Fail2ban</li>
-            <li>Threat Intel (VirusTotal, urlscan)</li>
-            <li>SSH Hardening (ED25519)</li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="skill-cat-title">Code &amp; Tooling</div>
-          <ul class="skill-list-items">
-            <li>C11 (POSIX Systems Programming)</li>
-            <li>Rust (TUI &amp; Asynchronous Tools)</li>
-            <li>Go (CLI Tools &amp; Telemetry)</li>
-            <li>Python &amp; Modern Bash Scripting</li>
-            <li>Git, GitHub Actions CI/CD</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact / CTA Banner -->
-    <div class="cta-banner">
-      <h3 class="cta-title">Let's Build Resilient Infrastructure</h3>
-      <p class="cta-text">
-        Open to technical collaboration, systems architecture discussions, and engineering opportunities.
-      </p>
-
-      <div class="contact-grid">
-        <a href="mailto:usamaimrancheema435@gmail.com" class="contact-pill">
-          <span>✉</span> usamaimrancheema435@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/usama-imran-7a2690346/" target="_blank" class="contact-pill">
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://x.com/ucmz851" target="_blank" class="contact-pill">
-          <span>X / Twitter</span>
-        </a>
-        <a href="https://github.com/ucmz851" target="_blank" class="contact-pill">
-          <span>GitHub (@ucmz851)</span>
-        </a>
-      </div>
-    </div>
+    <!-- Footer -->
+    <footer>
+      <span>&copy; 2026 Usama Imran Cheema</span>
+      <span>ucheema@linux:~$</span>
+    </footer>
 
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Usama Imran Cheema &bull; Linux Systems &amp; Infrastructure Engineering</p>
-    </div>
-  </footer>
 
 </body>
 </html>
