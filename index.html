@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Usama Imran Cheema</title>
-  <meta name="description" content="Usama Imran Cheema — Purpose, vision, and mission to engineer fundamentally safe technology for humanity." />
+  <meta name="description" content="Usama Imran Cheema — Systems engineer. Building quiet, reliable, and safe software." />
 
   <!-- JetBrains Mono Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -40,7 +40,7 @@
       color: var(--text);
       font-family: 'JetBrains Mono', monospace;
       line-height: 1.8;
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -59,18 +59,18 @@
 
     /* Layout */
     .container {
-      max-width: 640px;
+      max-width: 620px;
       margin: 0 auto;
-      padding: 80px 24px 100px;
+      padding: 72px 24px 96px;
     }
 
     /* Header */
     header {
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .name {
-      font-size: 1.65rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: #ffffff;
@@ -78,10 +78,10 @@
     }
 
     .tagline {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       font-weight: 400;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .nav-links {
@@ -102,12 +102,12 @@
     .divider {
       height: 1px;
       background: var(--border);
-      margin: 40px 0;
+      margin: 36px 0;
     }
 
     /* Sections */
     section {
-      margin-bottom: 44px;
+      margin-bottom: 38px;
     }
 
     .label {
@@ -116,12 +116,12 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--text-dim);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .prose p {
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       line-height: 1.8;
     }
 
@@ -134,44 +134,44 @@
       font-weight: 600;
     }
 
-    /* Purpose Highlight Card */
-    .purpose-card {
+    /* Simple Callout */
+    .note-box {
       background: var(--card);
       border: 1px solid var(--border);
-      border-left: 2px solid #ffffff;
-      padding: 20px 22px;
+      border-left: 2px solid #555555;
+      padding: 16px 18px;
       border-radius: 4px;
-      margin: 20px 0;
+      margin: 16px 0;
     }
 
-    .purpose-card p {
-      color: #ededed;
-      line-height: 1.75;
-      font-size: 0.92rem;
+    .note-box p {
+      color: #d4d4d8;
+      line-height: 1.7;
+      font-size: 0.88rem;
       margin: 0;
     }
 
     /* Action Box */
     .action-box {
-      margin-top: 18px;
+      margin-top: 16px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 22px;
+      padding: 20px;
     }
 
     .action-title {
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: #ffffff;
       margin-bottom: 8px;
     }
 
     .action-desc {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .action-buttons {
@@ -184,8 +184,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 14px;
-      font-size: 0.8rem;
+      padding: 7px 14px;
+      font-size: 0.78rem;
       font-weight: 600;
       border-radius: 4px;
       font-family: 'JetBrains Mono', monospace;
@@ -212,9 +212,9 @@
       background: #111111;
     }
 
-    /* Single GitHub Link Card */
+    /* GitHub Link Card */
     .github-box {
-      margin-top: 16px;
+      margin-top: 14px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
@@ -230,13 +230,13 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 16px 20px;
+      padding: 16px 18px;
       text-decoration: none !important;
     }
 
     .github-icon {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       fill: #ffffff;
       flex-shrink: 0;
     }
@@ -248,25 +248,25 @@
     }
 
     .github-handle {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 600;
       color: #ffffff;
     }
 
     .github-desc {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-dim);
     }
 
     /* Footer */
     footer {
-      margin-top: 60px;
-      padding-top: 24px;
+      margin-top: 56px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--text-dim);
     }
 
@@ -275,7 +275,7 @@
         padding: 48px 20px 64px;
       }
       .name {
-        font-size: 1.45rem;
+        font-size: 1.35rem;
       }
       footer {
         flex-direction: column;
@@ -292,7 +292,7 @@
     <!-- Header -->
     <header>
       <h1 class="name">Usama Imran Cheema</h1>
-      <p class="tagline">Engineering safe, sovereign technology for humanity.</p>
+      <p class="tagline">Systems engineer &bull; Linux administrator</p>
 
       <nav class="nav-links">
         <a href="https://github.com/ucmz851" target="_blank">github ↗</a>
@@ -311,53 +311,51 @@
         <div class="label">// who am i</div>
         <div class="prose">
           <p>
-            I am a builder and systems engineer.
+            I am Usama Imran Cheema. I work on Linux systems, server infrastructure, and low-level software.
           </p>
           <p>
-            I believe that technology should serve human dignity, preserve freedom, and protect every individual who depends on it.
+            I spend my days working close to the machine—running production servers, working with virtualization hypervisors, and understanding how computing systems operate from the hardware and kernel up.
           </p>
         </div>
       </section>
 
-      <!-- Purpose -->
+      <!-- What I Believe / Purpose -->
       <section>
-        <div class="label">// my purpose</div>
+        <div class="label">// what i care about</div>
         <div class="prose">
           <p>
-            My purpose on this planet is to build revolutionary technology that is <strong>inherently safe, resilient, and honest for all human beings</strong>.
+            A lot of modern technology is rushed, bloated, and fragile. It often compromises user privacy and breaks down when put under pressure.
           </p>
 
-          <div class="purpose-card">
+          <div class="note-box">
             <p>
-              Much of the modern digital world has become fragile, manipulative, and unsafe by design. Systems are built to harvest, exploit, and compromise the people using them.
-              <br /><br />
-              I am here to change that. I exist to engineer foundational computing that puts user safety, absolute privacy, and human agency first.
+              My goal is simple: build software and systems that are quiet, reliable, and fundamentally safe for the people who rely on them.
             </p>
           </div>
 
           <p>
-            Safety is not a marketing feature. It is a fundamental moral responsibility.
+            I care about systems that do their job well without spying, without wasting resources, and without failing silently.
           </p>
         </div>
       </section>
 
-      <!-- The Mission / Join Me -->
+      <!-- Collaborating / People -->
       <section>
-        <div class="label">// the mission</div>
+        <div class="label">// collaboration</div>
         <div class="prose">
           <p>
-            Building technology that reshapes the future is not a path walked alone. I am looking for people to join me in this mission.
+            I want to work with people who care about genuine engineering craft, system stability, and building technology the right way.
           </p>
         </div>
 
         <div class="action-box">
-          <div class="action-title">Let's build technology that protects humanity.</div>
+          <div class="action-title">Let's build honest, solid systems.</div>
           <div class="action-desc">
-            If you are an ambitious engineer, thinker, or builder who refuses to settle for the status quo, and wants to create technology that genuinely shields and empowers users—reach out. Let's work together.
+            If you are an engineer or builder who values security, clean architecture, and user trust over hype—reach out anytime.
           </div>
           <div class="action-buttons">
             <a href="mailto:usamaimrancheema435@gmail.com" class="btn btn-primary">
-              get in touch ↗
+              send an email ↗
             </a>
             <a href="https://x.com/ucmz851" target="_blank" class="btn btn-outline">
               x.com/@ucmz851 ↗
@@ -369,12 +367,12 @@
         </div>
       </section>
 
-      <!-- Work / Single GitHub Link -->
+      <!-- Open Source / Code -->
       <section>
-        <div class="label">// open source &amp; code</div>
+        <div class="label">// open source</div>
         <div class="prose">
           <p>
-            Everything I build is developed transparently and in the open.
+            My tools, utilities, and infrastructure configurations are open source:
           </p>
         </div>
 
@@ -385,7 +383,7 @@
             </svg>
             <div class="github-text">
               <span class="github-handle">github.com/ucmz851 ↗</span>
-              <span class="github-desc">explore repositories, tools, and code</span>
+              <span class="github-desc">repositories, systems code, and tooling</span>
             </div>
           </a>
         </div>
@@ -396,7 +394,7 @@
     <!-- Footer -->
     <footer>
       <span>&copy; 2026 usama imran cheema</span>
-      <span>pitch black &bull; jetbrains mono</span>
+      <span>ucheema@linux:~$</span>
     </footer>
 
   </div>
